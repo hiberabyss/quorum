@@ -195,6 +195,6 @@ EOF
 #### Create pre-populated contracts ####################################
 
 # Private contract - insert Node 2 as the recipient
-cat templates/contract_pri.js \
-    | sed s:_NODEKEY_:`cat qdata_2/keys/tm.pub`:g \
-          > contract_pri.js
+# cat templates/contract_pri.js \
+    # | sed s:_NODEKEY_:`cat qdata_2/keys/tm.pub`:g \
+          # > contract_pri.js
