@@ -4,14 +4,17 @@
 
 # One Docker container will be configured for each IP address in $ips
 subnet="172.13.0.0/16"
-ips=("172.13.0.2" "172.13.0.3" "172.13.0.4")
+
+nnodes=${1-3}
+ips=()
+for (( i = 2; i <= nnodes + 1; i++ )); do
+    ips+=(172.13.0.$i)
+done
 
 # Docker image name
 image=hbliu/quorum
 
 ########################################################################
-
-nnodes=${#ips[@]}
 
 if [[ $nnodes < 2 ]]
 then
