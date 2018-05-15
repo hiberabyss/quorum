@@ -16,7 +16,7 @@ image=hbliu/quorum
 
 ########################################################################
 
-if [[ $nnodes < 2 ]]
+if [[ $nnodes -lt 2 ]]
 then
     echo "ERROR: There must be more than one node IP address."
     exit 1

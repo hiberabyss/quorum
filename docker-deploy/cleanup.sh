@@ -6,3 +6,5 @@ rm -f contract_pri.js
 
 # Shouldn't be needed, but just in case:
 rm -f static-nodes.json genesis.json
+
+docker-compose down
