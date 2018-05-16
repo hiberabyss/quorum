@@ -9,3 +9,8 @@
 * `docker exec -it docker-deploy_node_1_1`
 * `/nnodes/create_contract.sh`
 * `loadScript("/nnodes/contract_pub.js")`
+
+# Deploy via Kubernetes
+
+* `cd ./helm/quorum`
+* `helm install -n quorum .`
