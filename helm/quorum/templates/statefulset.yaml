@@ -1,0 +1,25 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: quorum
+spec:
+  serviceName: quorum
+  replicas: {{ .Values.replicaCount }}
+  podManagementPolicy: Parallel
+  updateStrategy:
+    type: OnDelete
+  template:
+    metadata:
+      labels:
+        app: quorum
+    spec:
+      containers:
+      - name: quorum
+        imagePullPolicy: Always
+        image: hbliu/quorum-k8s:latest
+        restartPolicy: Never
+        env:
+        - name: NODE_NUMBER
+          value: "{{ .Values.replicaCount }}"
+        - name: NODE_PREFIX
+          value: "quorum-"

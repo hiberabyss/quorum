@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: quorum
+  labels:
+    app: quorum
+spec:
+  # type: NodePort
+  clusterIP: None
+  ports:
+  - port: 46656
+    name: p2p
+  - port: 46657
+    name: rpc
+  selector:
+    app: quorum

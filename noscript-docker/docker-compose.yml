@@ -1,0 +1,29 @@
+version: '2.0'
+
+services:
+
+  quorum-0:
+    image: hbliu/quorum-k8s
+    container_name: quorum-0
+    hostname: quorum-0
+    tty: true
+    environment:
+      - NODE_PREFIX=quorum-
+      - NODE_NUMBER=2
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/quorum
+      - ./quorum_1:/qdata
+
+  quorum-1:
+    image: hbliu/quorum-k8s
+    container_name: quorum-1
+    hostname: quorum-1
+    tty: true
+    environment:
+      - NODE_PREFIX=quorum-
+      - NODE_NUMBER=2
+    volumes:
+      - ./:/quorum
+      - ./quorum_2:/qdata
