@@ -1,14 +1,10 @@
-//
-// Create a public contract
-//
-
 a = eth.accounts[0]
 web3.eth.defaultAccount = a;
 
-loadScript("/tmp/hello.js")
+loadScript("/nnodes/hello.js")
 
-var simpleContract = web3.eth.contract(JSON.parse(output.contracts["/nnodes/hello.sol:simplestorage"].abi));
-var simple = simpleContract.new(42, {from:web3.eth.accounts[0], data: "0x" + output.contracts["/nnodes/hello.sol:simplestorage"].bin, gas: 300000}, function(e, contract) {
+var simpleContract = web3.eth.contract(JSON.parse(output.contracts["/nnodes/hello.sol:SimpleStorage"].abi));
+var storage = simpleContract.new(42, {from:web3.eth.accounts[0], data: "0x" + output.contracts["/nnodes/hello.sol:SimpleStorage"].bin, gas: 300000}, function(e, contract) {
 	if (e) {
 		console.log("err creating contract", e);
 	} else {

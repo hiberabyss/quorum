@@ -17,7 +17,6 @@ spec:
       - name: quorum
         imagePullPolicy: Always
         image: hbliu/quorum-k8s:latest
-        restartPolicy: Never
         env:
         - name: NODE_NUMBER
           value: "{{ .Values.replicaCount }}"

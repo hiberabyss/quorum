@@ -8,9 +8,9 @@ spec:
   # type: NodePort
   clusterIP: None
   ports:
-  - port: 46656
+  - port: 8454
     name: p2p
-  - port: 46657
+  - port: 9000
     name: rpc
   selector:
     app: quorum

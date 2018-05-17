@@ -166,8 +166,10 @@ do
     qd=qdata_$n
 
     cat >> docker-compose.yml <<EOF
-  node_$n:
+  quorum_$n:
     image: $image
+    container_name: quorum_$n
+    hostname: quorum_$n
     volumes:
       - './$qd:/qdata'
       - '.:/nnodes'
